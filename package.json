@@ -1,0 +1,20 @@
+{
+  "name": "scoreboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "thiruvaran",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "firebase-admin": "^9.6.0",
+    "node-cron": "^3.0.0",
+    "nodemailer": "^6.5.0",
+    "nodemon": "^2.0.7"
+  }
+}

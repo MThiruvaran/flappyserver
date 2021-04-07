@@ -1,0 +1,42 @@
+.score-board-page {
+  background-image: url("../assets/flappybackground.jpg");
+}
+
+.score-board {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.349);
+  width: 30%;
+  background-color: rgba(255, 255, 255, 0.555);
+}
+
+.score-table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.score-table th {
+  background-color: #4caf50;
+  color: white;
+  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.score-table th,
+.score-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-weight: bold;
+}
+
+.score-board__heading {
+  text-align: center;
+  margin-top: 10%;
+  font-size: 50px;
+}

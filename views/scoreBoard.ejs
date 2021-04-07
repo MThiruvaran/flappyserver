@@ -1,0 +1,24 @@
+<%- include('includes/head.ejs') %>
+<link rel="stylesheet" href="/css/scoreBoard.css">
+</head>
+
+<body class="score-board-page">    
+    <main>
+        <h1 class="score-board__heading">Score Board</h1>
+        <div class="score-board">
+            <table class="score-table">
+                <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+                <% data.forEach((player) => { %>
+                 <tr>
+                    <td><%= player.name %></td>
+                    <td><%= player.score %></td>
+                 </tr>
+                <% }) %>
+            </table>
+        </div>
+    </main>
+
+<%- include('includes/end.ejs') %>

@@ -1,0 +1,24 @@
+<%- include('includes/head.ejs') %> 
+<link rel="stylesheet" href="/css/details.css">
+</head>
+
+<body>    
+    <main class="player-details">
+        <form class="details-form" action="/details/player-details" method="POST">
+        <div class="form-control">
+            <label for="name">Name</label>
+            <input type="text" name="name" id='name'>
+        </div>
+        <div class="form-control">
+            <label for="email">Email address</label>
+            <input type="text" name="email" id='email'>
+        </div>
+        <div class="form-control">
+            <label for="score">Score</label>
+            <input type="text" name="score" id='score'>
+        </div>
+        <button class="btn" type="submit">Submit</button>
+        </form>
+    </main>
+
+<%- include('includes/end.ejs') %>
