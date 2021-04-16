@@ -1,0 +1,133 @@
+body {
+  background-image: url("../assets/JoxxerBG.png");
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.game-box {
+  height: fit-content;
+  width: fit-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 740) {
+  .game-box {
+    transform: translate(-50%, -40%);
+  }
+}
+
+@media only screen and (max-height: 900px) {
+  .game-box {
+    transform: translate(-50%, -40%);
+  }
+}
+
+.sky {
+  background-image: url("../assets/backgrounds/BeachStatic.png");
+  height: 512px;
+  width: 348px;
+}
+.ground-container {
+  background-image: url("../assets/backgrounds/BeachGround.png");
+  height: 62px;
+  width: 348px;
+  margin-top: -62px;
+}
+
+.bird {
+  background-image: url("../assets/LeprechaunJumpGIF.gif");
+  height: 50px;
+  width: 32px;
+  position: absolute;
+  bottom: 250px;
+  left: 100px;
+}
+
+.obstacle {
+  background-image: url("../assets/obstacle/DragonGIF.gif");
+  height: 160px;
+  width: 80px;
+  position: absolute;
+}
+
+.topObstacle {
+  background-image: url("../assets/obstacle/DragonGIF.gif");
+  height: 160px;
+  width: 80px;
+  position: absolute;
+}
+
+.instruction {
+  margin-top: 50px;
+  color: white;
+  text-align: center;
+}
+
+.instruction p {
+  font-size: 20px;
+}
+
+.instruction h1 {
+  text-transform: uppercase;
+}
+
+.info-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.info {
+  display: flex;
+  color: white;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-around;
+  width: 512px;
+  align-self: center;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score p,
+.timer p {
+  font-size: 20px;
+}
+
+.score-text,
+.timer-text {
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+.start-button {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(64, 177, 98);
+  border: 3px solid white;
+  border-radius: 50px;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.start-button:hover {
+  background-color: greenyellow;
+  border: none;
+  padding: 25px;
+}

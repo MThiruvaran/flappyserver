@@ -1,0 +1,41 @@
+<%- include('includes/head.ejs') %> 
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+      integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/app.js"></script>
+    
+  </head>
+  <body>
+    <div class="instruction">
+      <h1>how to Play?</h1>
+      <p>
+        Start the game clicking the start button and to jump use
+        <strong>SPACE BAR</strong> or <strong>UP ARROW</strong>
+      </p>
+    </div>
+    <div class="info-container">
+      <div class="info">
+        <div class="timer">
+          <p>Timer :</p>
+          <p class="timer-text"></p>
+        </div>
+        <div class="score">
+          <p>Score :</p>
+          <p class="score-text"></p>
+        </div>
+      </div>
+    </div>
+    <div class="game-box">
+      <div class="game-container">
+        <div class="sky">
+          <div class="bird"></div>
+        </div>
+      </div>
+      <div class="ground-container"></div>
+    </div>
+    <button class="start-button">Start Game</button>
+  </body>
+</html>

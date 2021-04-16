@@ -1,9 +1,13 @@
 const db = require("../firebase");
-
+const url = require("url");
 exports.getDetailsPage = (req, res, next) => {
-  res
-    .status(200)
-    .render("details", { pageTitle: "Details", path: "/player/details" });
+  const urlParts = url.parse(req.url, true);
+  score = parseInt(urlParts.query.score);
+  res.status(200).render("details", {
+    pageTitle: "Details",
+    path: "/player/details",
+    score,
+  });
 };
 
 exports.saveDetails = async (req, res, next) => {

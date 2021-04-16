@@ -53,7 +53,7 @@ cron.schedule("59 23 * * saturday", async () => {
     const topScorer = await getScores();
     const mailOptions = {
       from: "thiruvaran00@gmail.com",
-      to: "thiruvarancse@gmail.com",
+      to: "joxergame@gmail.com",
       subject: "this an auto generated email don't reply",
       text: `the top score of this week is ${topScorer.score} and that is scored by ${topScorer.name} and his email address is: ${topScorer.email}`,
     };
@@ -68,6 +68,13 @@ cron.schedule("59 23 * * saturday", async () => {
   } catch (error) {
     console.log(error);
   }
+});
+
+app.get("/", (req, res, next) => {
+  res.status(200).render("game", {
+    pageTitle: "Game",
+    path: "/",
+  });
 });
 
 app.use("/details", detailsRoutes);
