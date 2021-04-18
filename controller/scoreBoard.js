@@ -15,6 +15,7 @@ exports.getScoreBoard = async (req, res, next) => {
       pageTitle: "Score Board",
       path: "/score-board",
       data: scoreArray,
+      yourScore: 50,
     });
   } catch (error) {
     console.log(error);
