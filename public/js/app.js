@@ -123,3 +123,19 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   startTimer();
 });
+
+let pgNo = 1;
+const imageContainer = document.querySelector(".how-play-image");
+function leftPage() {
+  if (pgNo > 1) {
+    pgNo -= 1;
+    imageContainer.style.backgroundImage = `url('/assets/howtoplay${pgNo}.png')`;
+  }
+}
+
+function rightPage() {
+  if (pgNo < 3) {
+    pgNo += 1;
+    imageContainer.style.backgroundImage = `url('/assets/howtoplay${pgNo}.png')`;
+  }
+}

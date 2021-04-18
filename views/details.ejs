@@ -1,27 +1,34 @@
 <%- include('includes/head.ejs') %> 
-<link rel="stylesheet" href="/css/details.css">
+
 </head>
 
 <body> 
-    <h1>Enter Your Details</h1>
-    <main class="player-details">
-        
-        <form class="details-form" action="/details/player-details" method="POST">
-        <div class="form-control">
-            <label for="name">Name</label>
-            <input type="text" name="name" id='name' required>
+    <main class="details-container">
+        <div class="details">
+          <h1>Congratulations!</h1>
+          <form class="details-form" method="POST" action="/details/player-details">
+            <input
+              type="text"
+              placeholder="Enter your name"
+              name="name"
+              class="name-field"
+            />
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              name="email"
+              class="email-field"
+            />
+            <input type="hidden" name="score" value="<%= score %> " />
+            <input type="submit" class="submit-button" />
+          </form>
+          <input
+            type="image"
+            src="/assets/RestartButton.png"
+            class="restart-button-details"
+            onclick="window.location.replace('/game')"
+          />
         </div>
-        <div class="form-control">
-            <label for="email">Email address</label>
-            <input type="email" name="email" id='email' required>
-        </div>
-        <div class="form-control">
-            <label for="score">Score</label> 
-            <p><%= score %> </p>
-            <input type="hidden" name="score" id='score' value='<%= score %>' >
-        </div>
-        <button class="btn" type="submit">Submit</button>
-        </form>
-    </main>
+      </main>
 
 <%- include('includes/end.ejs') %>

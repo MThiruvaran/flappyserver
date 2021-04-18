@@ -71,9 +71,23 @@ cron.schedule("59 23 * * saturday", async () => {
 });
 
 app.get("/", (req, res, next) => {
+  res.status(200).render("menu", {
+    pageTitle: "Menu",
+    path: "/",
+  });
+});
+
+app.get("/game", (req, res, next) => {
   res.status(200).render("game", {
     pageTitle: "Game",
-    path: "/",
+    path: "/game",
+  });
+});
+
+app.get("/how-to-play", (req, res, next) => {
+  res.status(200).render("howtoplay", {
+    pageTitle: "How To Play",
+    path: "/how-to-play",
   });
 });
 

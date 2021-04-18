@@ -1,24 +1,37 @@
 <%- include('includes/head.ejs') %>
-<link rel="stylesheet" href="/css/scoreBoard.css">
+
 </head>
 
-<body class="score-board-page">    
-    <main>
-        <h1 class="score-board__heading">Score Board</h1>
-        <div class="score-board">
-            <table class="score-table">
-                <tr>
-                    <th>Name</th>
-                    <th>Score</th>
-                </tr>
-                <% data.forEach((player) => { %>
-                 <tr>
-                    <td><%= player.name %></td>
-                    <td><%= player.score %></td>
-                 </tr>
-                <% }) %>
-            </table>
+<body>
+    <main class="scoreboard-container">
+      <div class="scoreboard">
+        <h1>Top 10</h1>
+        <table>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Score</th>
+          </tr>
+          <% data.forEach((player, index) => { %>
+            <tr>
+               <td><%= index+1 %> </td>
+               <td><%= player.name %></td>
+               <td><%= player.score %></td>
+            </tr>
+           <% }) %>
+        </table>
+        <div class="your-score">
+          <p class="your-score-text">your score:</p>
+          <p class="your-score-value"><%= yourScore %> </p>
         </div>
+        <input
+          type="image"
+          src="/assets/RestartButton.png"
+          class="restart-button"
+        />
+      </div>
     </main>
 
 <%- include('includes/end.ejs') %>
+
+

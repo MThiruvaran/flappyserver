@@ -1,0 +1,28 @@
+<%- include('includes/head.ejs')  %>
+</head>
+
+<body>
+    <main class="menu-container">
+        <div class="menu">
+          <input
+            class="start-button"
+            type="image"
+            src=" /assets/StartButton.png"
+            onclick="window.location.replace('/game')"
+          />
+          <input
+            type="image"
+            src="/assets/Top10Button.png"
+            class="top-ten-button"
+            onclick="window.location.replace('/score-board');"
+          />
+          <input
+            type="image"
+            src="/assets/HowToPlayButton.png"
+            class="how-to-play-button"
+            onclick="window.location.replace('/how-to-play')"
+          />
+        </div>
+      </main>
+    
+<%- include('includes/end.ejs') %> 
