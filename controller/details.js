@@ -22,8 +22,10 @@ exports.saveDetails = async (req, res, next) => {
   };
 
   try {
-    await db.collection("scores").add(data);
-    res.redirect("/score-board");
+    const scoreRef = await db.collection("scores").add(data);
+    const score = await db.collection("scores").doc(scoreRef.id).get();
+    const scoreData = score.data();
+    res.redirect(`/score-board?score=${scoreData.score}`);
   } catch (error) {
     console.log(error);
   }

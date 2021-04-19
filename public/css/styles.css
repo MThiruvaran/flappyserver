@@ -53,35 +53,27 @@ body {
 }
 
 .info-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .info {
   display: flex;
-  color: white;
-  padding: 20px;
-  align-items: center;
   justify-content: space-around;
-  width: 512px;
-  align-self: center;
 }
 
 .timer {
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .score {
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .score p,
 .timer p {
+  color: white;
   font-size: 20px;
 }
 

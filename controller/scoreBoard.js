@@ -1,6 +1,8 @@
 const db = require("../firebase");
-
+const url = require("url");
 exports.getScoreBoard = async (req, res, next) => {
+  const urlParts = url.parse(req.url, true);
+  score = parseInt(urlParts.query.score);
   try {
     const scoreSnapshot = await db
       .collection("scores")
@@ -15,7 +17,7 @@ exports.getScoreBoard = async (req, res, next) => {
       pageTitle: "Score Board",
       path: "/score-board",
       data: scoreArray,
-      yourScore: 50,
+      yourScore: null || score,
     });
   } catch (error) {
     console.log(error);
