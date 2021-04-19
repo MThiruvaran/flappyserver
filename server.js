@@ -48,6 +48,13 @@ const getScores = async () => {
   return topScore;
 };
 
+const deleteDocs = async () => {
+  const docRef = await db.collection("scores").get();
+  docRef.forEach(async (docu) => {
+    await db.collection("scores").doc(docu.id).delete();
+  });
+};
+
 cron.schedule("59 23 * * saturday", async () => {
   try {
     const topScorer = await getScores();
@@ -68,6 +75,8 @@ cron.schedule("59 23 * * saturday", async () => {
   } catch (error) {
     console.log(error);
   }
+
+  await deleteDocs();
 });
 
 app.get("/", (req, res, next) => {

@@ -360,10 +360,12 @@ document.addEventListener("DOMContentLoaded", () => {
     clearInterval(gameTimerId);
 
     bird.style.backgroundImage = "url('/assets/LeprechaunDead.png')";
-
+    gameOverSound.play();
     isGameOver = true;
     document.removeEventListener("keyup", control);
-    window.location.replace(`/details/get-details?score=${scoreCount}`);
+    setTimeout(() => {
+      window.location.replace(`/details/get-details?score=${scoreCount}`);
+    }, 3000);
   };
 
   document.addEventListener("keyup", control);
