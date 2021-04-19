@@ -52,7 +52,7 @@ body {
   background-repeat: repeat-x;
   height: 480px;
   width: 14750px;
-  animation: slide 60s linear infinite;
+  animation: slide 100s linear infinite;
 }
 .ground-container {
   overflow: hidden;
