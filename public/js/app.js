@@ -6,19 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const timer = document.querySelector(".timer-text");
   const score = document.querySelector(".score-text");
 
-  gameDisplay.addEventListener("click", function (e) {
-    if (!isGameOver) {
-      if (jumpCond === false) {
-        if (birdBottom < 470) jump();
-      }
-    }
-  });
+  let visibileNow = false;
+  let currentlyNotColliding = true;
   let speed = 2;
   let projectileSpeed = 3;
   let normalSpeed = 2;
-  let changed = false;
   let elementContainer = [];
-  const backgroundArray = ["Beach", "Capital", "Krakow", "Lake", "Mountain"];
+
   const obstacles = [
     "Dragon.gif",
     "Eagle.gif",
@@ -27,7 +21,85 @@ document.addEventListener("DOMContentLoaded", () => {
     "Shamrock.png",
     "Siren.gif",
   ];
+  const timerJump = (ms) => new Promise((res) => setTimeout(res, 0.001));
 
+  let ballAngle;
+  let jumpCond = false;
+  let birdBottom = 250;
+  let birdLeft = 100;
+  let isGameOver = false;
+
+  let gravity = 2;
+  let time = 60;
+  let scoreCount = 0;
+
+  timer.innerHTML = time;
+  score.innerHTML = scoreCount;
+  sound = document.createElement("audio");
+  sound.src = "/assets/Sounds/PolishAnthem.mp3";
+  sound.setAttribute("preload", "auto");
+  sound.setAttribute("controls", "none");
+  sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  sound.volume = 0.1;
+  sound.play();
+
+  jumpSound = document.createElement("audio");
+  jumpSound.src = "/assets/Sounds/Jump.wav";
+  jumpSound.setAttribute("preload", "auto");
+  jumpSound.setAttribute("controls", "none");
+  jumpSound.style.display = "none";
+  document.body.appendChild(this.jumpSound);
+  jumpSound.loop = false;
+
+  collectSoundTime = document.createElement("audio");
+  collectSoundTime.src = "/assets/Sounds/Get_Item2.wav";
+  collectSoundTime.setAttribute("preload", "auto");
+  collectSoundTime.setAttribute("controls", "none");
+  collectSoundTime.style.display = "none";
+  document.body.appendChild(this.collectSoundTime);
+  collectSoundTime.loop = false;
+
+  FireballShoot = document.createElement("audio");
+  FireballShoot.src = "/assets/Sounds/Get_Item2.wav";
+  FireballShoot.setAttribute("preload", "auto");
+  FireballShoot.setAttribute("controls", "none");
+  FireballShoot.style.display = "none";
+  document.body.appendChild(this.collectSoundTime);
+  FireballShoot.loop = false;
+  FireballShoot.play();
+
+  collectSoundScore = document.createElement("audio");
+  collectSoundScore.src = "/assets/Sounds/PolishAnthem.mp3";
+  collectSoundScore.setAttribute("preload", "auto");
+  collectSoundScore.setAttribute("controls", "none");
+  collectSoundScore.style.display = "none";
+  document.body.appendChild(this.collectSoundScore);
+  collectSoundScore.loop = false;
+  collectSoundScore.play();
+
+  gameOverSound = document.createElement("audio");
+  gameOverSound.src = "/assets/Sounds/Explode2.wav";
+  gameOverSound.setAttribute("preload", "auto");
+  gameOverSound.setAttribute("controls", "none");
+  gameOverSound.style.display = "none";
+  document.body.appendChild(this.gameOverSound);
+  gameOverSound.loop = false;
+
+  gameDisplay.addEventListener("click", function (e) {
+    if (!isGameOver) {
+      if (jumpCond === false) {
+        if (birdBottom < 470) jump();
+        jumpSound.play();
+      }
+    }
+  });
+
+  function arrayRemove(arr, value) {
+    return arr.filter(function (ele) {
+      return ele != value;
+    });
+  }
   const isOverlapping = (e1, secondDiv) => {
     e2 = secondDiv.mdiv;
     if (e1.length && e1.length > 1) {
@@ -55,28 +127,86 @@ document.addEventListener("DOMContentLoaded", () => {
     console.warn("Please provide valid HTMLElement object");
     return { number: 25, overlapState: overlap };
   };
-  const timerJump = (ms) => new Promise((res) => setTimeout(res, 0.001));
-  let currentlyColliding = false;
-  let jumpCond = false;
-  let birdBottom = 250;
-  let birdLeft = 100;
-  let isGameOver = false;
-
-  let gravity = 2;
-  let time = 60;
-  let scoreCount = 0;
-
-  timer.innerHTML = time;
-  score.innerHTML = scoreCount;
 
   const startGame = () => {
     birdBottom -= gravity;
     bird.style.left = birdLeft + "px";
     bird.style.bottom = birdBottom + "px";
     gravity += 0.3;
+
+    timer.innerHTML = time;
+    score.innerHTML = scoreCount;
+
+    elementContainer.forEach((element) => {
+      num = isOverlapping(bird, element);
+
+      console.log(currentlyNotColliding);
+
+      if (num.overlapState) {
+        if (currentlyNotColliding) {
+          switch (num.number) {
+            case 0:
+              currentlyNotColliding = false;
+              gameOver();
+              break;
+            case 1:
+              currentlyNotColliding = false;
+              element.mdiv.style.backgroundImage =
+                "url('/assets/obstacle/EaglePickup.gif')";
+              time += 7;
+              collectSoundTime.play();
+
+              elementContainer = arrayRemove(elementContainer, element);
+              break;
+            case 111:
+              currentlyNotColliding = false;
+              element.mdiv.style.backgroundImage =
+                "url('/assets/obstacle/BallPickUp.gif')";
+              bird.style.backgroundImage = "url('/assets/LeperchaunCatch.gif')";
+              time += 7;
+              collectSoundTime.play();
+              elementContainer = arrayRemove(elementContainer, element);
+              break;
+            case 3:
+              currentlyNotColliding = false;
+              element.mdiv.style.backgroundImage =
+                "url('/assets/obstacle/FlagPickup.gif')";
+              elementContainer;
+              elementContainer = arrayRemove(elementContainer, element);
+              scoreCount += 25;
+              collectSoundTime.play();
+
+              break;
+            case 4:
+              scoreCount += 75;
+              currentlyNotColliding = false;
+              element.mdiv.style.backgroundImage =
+                "url('/assets/obstacle/CloverPickup.gif')";
+              elementContainer = arrayRemove(elementContainer, element);
+              break;
+            case 5:
+              currentlyNotColliding = false;
+              time += 7;
+              element.mdiv.style.backgroundImage =
+                "url('/assets/obstacle/SirenPickup.gif')";
+              time += 7;
+              collectSoundTime.play();
+              elementContainer = arrayRemove(elementContainer, element);
+              break;
+            case 11:
+              currentlyColliding = false;
+              gameOver();
+              break;
+          }
+        } else {
+          currentlyNotColliding = true;
+        }
+      }
+    });
   };
 
   let gameTimerId = setInterval(startGame, 20);
+  startGame.setTimeout;
 
   const jump = () => {
     jumpCond = true;
@@ -104,64 +234,104 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const generateObstacle = () => {
     let obstacleLeft = 400;
-    let projectileLeft = 400;
+    let projectileLeftFire = 400;
+    let projectileLeftBall = 400;
     let randomHeight = 62 + Math.random() * 380;
     let obstacleBottom = randomHeight;
-    let projectileBottom = randomHeight;
+    let projectileBottomFire = randomHeight;
+    let projectileBottomBall = 50;
 
     const obstacle = document.createElement("div");
-    const projectile = document.createElement("div");
+    const projectileFire = document.createElement("div");
+    const projectileBall = document.createElement("div");
 
     if (!isGameOver) {
       obstacle.classList.add("obstacle");
-    }
-    if (!isGameOver) {
-      projectile.classList.add("obstacle");
+      projectileFire.classList.add("projectiles");
+      projectileBall.classList.add("projectiles");
     }
 
     let obstacleNumber = Math.floor(Math.random() * 6);
 
     gameDisplay.appendChild(obstacle);
-    gameDisplay.appendChild(projectile);
+    gameDisplay.appendChild(projectileFire);
+    gameDisplay.appendChild(projectileBall);
     obstacleNames = obstacles[obstacleNumber];
     obstacle.style.backgroundImage = `url('/assets/obstacle/${obstacles[obstacleNumber]}')`;
 
     obstacle.style.left = obstacleLeft + "px";
-    projectile.style.left = projectileLeft + "px";
+    projectileFire.style.left = projectileLeftFire + "px";
+    projectileBall.style.left = projectileLeftBall + "px";
     obstacle.style.bottom = obstacleBottom + "px";
-    projectile.style.bottom = projectileBottom - 30 + "px";
+
     elementContainer.push({ number: obstacleNumber, mdiv: obstacle });
 
     if (obstacleNumber === 0) {
-      projectile.style.backgroundImage = `url('/assets/obstacle/Fireball.gif')`;
-      projectile.style.visibility = "hidden";
-      elementContainer.push({ number: 11, mdiv: projectile });
+      projectileFire.style.bottom = projectileBottomFire + "px";
+      projectileFire.style.backgroundImage = `url('/assets/obstacle/Fireball.gif')`;
+      projectileFire.style.visibility = "hidden";
+      elementContainer.push({ number: 11, mdiv: projectileFire });
     } else if (obstacleNumber === 2) {
-      projectile.style.backgroundImage = `url('/assets/obstacle/Ball.png')`;
-      projectile.style.visibility = "hidden";
-      elementContainer.push({ number: 111, mdiv: projectile });
+      obstacle.style.bottom = 50 + "px";
+      projectileBall.style.bottom = 50 + "px";
+      projectileBall.style.backgroundImage = `url('/assets/obstacle/Ball.png')`;
+      projectileBall.style.visibility = "hidden";
+      elementContainer.push({ number: 111, mdiv: projectileBall });
     }
-    const moveProjectile = () => {
-      if (projectileLeft < 300) {
+    const moveProjectileFire = () => {
+      if (projectileLeftFire < 300) {
         speed = projectileSpeed;
-        projectile.style.visibility = "visible";
+        projectileFire.style.visibility = "visible";
       }
 
-      projectileLeft -= speed;
-      projectile.style.left = projectileLeft + "px";
+      projectileLeftFire -= speed;
+      projectileFire.style.left = projectileLeftFire + "px";
 
-      if (projectileLeft === -10) {
-        clearInterval(projectiletimerId);
-        gameDisplay.removeChild(projectile);
+      if (projectileLeftFire === -10) {
+        clearInterval(projectiletimerIdFire);
+        gameDisplay.removeChild(projectileFire);
+      }
+
+      if (birdBottom <= 60 || birdBottom === 470) {
+        clearInterval(projectiletimerIdFire);
+      }
+    };
+
+    const moveProjectileBall = () => {
+      if (projectileLeftBall <= 300) {
+        speed = projectileSpeed;
+        projectileBall.style.visibility = "visible";
+        visibileNow = true;
+      } else {
+        visibileNow = false;
+      }
+
+      if (visibileNow) {
+        ballAngle = 5;
+      } else {
+        ballAngle = 0;
+      }
+
+      projectileLeftBall -= speed;
+      projectileBottomBall += ballAngle;
+      console.log(ballAngle);
+      projectileBall.style.left = projectileLeftBall + "px";
+
+      projectileBall.style.bottom = projectileBottomBall + "px";
+
+      if (projectileLeftBall === -10) {
+        if (projectileBall.style.backgroundImage === "Ball.png") timer -= 7;
+        clearInterval(projectiletimerIdBall);
+        gameDisplay.removeChild(projectileBall);
         score.innerHTML = scoreCount;
       }
 
       if (birdBottom <= 60 || birdBottom === 470) {
-        clearInterval(projectiletimerId);
-        gameOver();
+        clearInterval(projectiletimerIdBall);
       }
     };
-    let projectiletimerId = setInterval(moveProjectile, 20);
+    let projectiletimerIdFire = setInterval(moveProjectileFire, 20);
+    let projectiletimerIdBall = setInterval(moveProjectileBall, 20);
 
     const moveObstacle = () => {
       obstacleLeft -= normalSpeed;
@@ -180,62 +350,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     let timerId = setInterval(moveObstacle, 20);
     if (!isGameOver) {
-      setTimeout(generateObstacle, 1000);
+      setTimeout(generateObstacle, 2000);
     }
-
-    elementContainer.forEach((element) => {
-      num = isOverlapping(bird, element);
-      if (num.overlapState) {
-        switch (num.number) {
-          case 0:
-            currentlyColliding = true;
-            console.log("Dragon");
-            gameOver();
-            break;
-          case 1:
-            currentlyColliding = true;
-            element.mdiv.style.backgroundImage =
-              "url('/assets/obstacle/EaglePickup.gif')";
-            console.log("Eagle");
-            time += 7;
-            break;
-          case 11:
-            currentlyColliding = true;
-            element.mdiv.style.backgroundImage = "url('/assets/obstacle/')";
-            console.log("Foot");
-            scoreCount += 25;
-            break;
-          case 3:
-            currentlyColliding = true;
-            element.mdiv.style.backgroundImage =
-              "url('/assets/obstacle/FlagPickup.gif')";
-            console.log("Flag");
-            scoreCount += 25;
-            break;
-          case 4:
-            scoreCount += 75;
-            currentlyColliding = true;
-            element.mdiv.style.backgroundImage =
-              "url('/assets/obstacle/CloverPickup.gif')";
-            console.log("Clover");
-            break;
-          case 5:
-            urrentlyColliding = true;
-            time += 7;
-            element.mdiv.style.backgroundImage =
-              "url('/assets/obstacle/SirenPickup.gif')";
-            console.log("Siren");
-            time += 7;
-            break;
-          case 11:
-            currentlyColliding = true;
-            gameOver();
-            break;
-          case 111:
-            break;
-        }
-      }
-    });
   };
 
   generateObstacle();

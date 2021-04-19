@@ -148,3 +148,10 @@ body {
   width: 20px;
   height: 21px;
 }
+
+.projectiles {
+  height: 22px;
+  width: 22px;
+  background-repeat: no-repeat;
+  position: absolute;
+}

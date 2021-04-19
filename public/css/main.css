@@ -116,6 +116,10 @@ td {
   margin-top: 40px;
 }
 
+.submit-button:focus {
+  outline: none;
+}
+
 .details-container {
   width: fit-content;
   height: fit-content;
@@ -176,6 +180,10 @@ td {
 
 .restart-button-details {
   margin-top: 80px;
+}
+
+.restart-button-details:focus {
+  outline: none;
 }
 
 .how-to-play-container {
