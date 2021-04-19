@@ -126,6 +126,13 @@ td {
   transform: translate(-50%, -50%);
 }
 
+@media screen and (max-width: 464px) {
+  .details-container {
+    padding: 10px;
+    left: 50%;
+  }
+}
+
 .details {
   width: fit-content;
   padding: 20px;
@@ -162,8 +169,8 @@ td {
   outline: none;
 }
 
-.details h1 {
-  font-size: 50px;
+.details p {
+  font-size: 20px;
   text-transform: uppercase;
 }
 

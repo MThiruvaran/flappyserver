@@ -24,16 +24,47 @@ body {
   }
 }
 
-.sky {
-  background-image: url("../assets/backgrounds/BeachStatic.png");
-  height: 512px;
+@keyframes slide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-4915px, 0, 0);
+  }
+}
+
+@keyframes groundslide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-348px, 0, 0);
+  }
+}
+
+.game-container {
+  overflow: hidden;
   width: 348px;
 }
+
+.sky {
+  background-image: url("../assets/LongBackground.png");
+  background-repeat: repeat-x;
+  height: 480px;
+  width: 14750px;
+  animation: slide 60s linear infinite;
+}
 .ground-container {
-  background-image: url("../assets/backgrounds/BeachGround.png");
-  height: 62px;
+  overflow: hidden;
   width: 348px;
-  margin-top: -62px;
+}
+
+.ground {
+  background-image: url("../assets/backgrounds/BeachGround.png");
+  background-repeat: repeat-x;
+  height: 62px;
+  width: 1044px;
+  animation: groundslide 8s linear infinite;
 }
 
 .bird {
@@ -56,6 +87,7 @@ body {
   position: absolute;
   top: 0;
   width: 100%;
+  z-index: 10;
 }
 
 .info {

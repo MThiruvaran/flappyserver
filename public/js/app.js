@@ -240,22 +240,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   generateObstacle();
 
-  const ChangeBackground = () => {
-    let randomBackground = Math.floor(Math.random() * 4);
-    console.log(randomBackground);
-    sky.style.backgroundImage = `url('/assets/backgrounds/${backgroundArray[randomBackground]}Static.png')`;
-    groundContainer.style.backgroundImage = `url('/assets/backgrounds/${backgroundArray[randomBackground]}Ground.png')`;
-  };
-
-  let backgroundChange = setInterval(() => {
-    if (!isGameOver) {
-      ChangeBackground();
-    }
-  }, 20000);
-
   const gameOver = () => {
     clearInterval(gameTimerId);
-    clearInterval(backgroundChange);
 
     bird.style.backgroundImage = "url('/assets/LeprechaunDead.png')";
 
