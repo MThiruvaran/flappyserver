@@ -233,3 +233,11 @@ td {
 .back-button:focus {
   outline: none;
 }
+.yourScore {
+  color: white;
+  display: flex;
+  margin-top: 10px;
+}
+.yourScore p {
+  font-size: 16px;
+}

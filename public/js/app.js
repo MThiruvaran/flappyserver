@@ -183,6 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
               element.mdiv.style.backgroundImage =
                 "url('/assets/obstacle/CloverPickup.gif')";
               elementContainer = arrayRemove(elementContainer, element);
+              collectSoundTime.play();
               break;
             case 5:
               currentlyNotColliding = false;
@@ -272,7 +273,7 @@ document.addEventListener("DOMContentLoaded", () => {
       projectileFire.style.visibility = "hidden";
       elementContainer.push({ number: 11, mdiv: projectileFire });
     } else if (obstacleNumber === 2) {
-      obstacle.style.bottom = 50 + "px";
+      obstacle.style.bottom = 30 + "px";
       projectileBall.style.bottom = 50 + "px";
       projectileBall.style.backgroundImage = `url('/assets/obstacle/Ball.png')`;
       projectileBall.style.visibility = "hidden";
