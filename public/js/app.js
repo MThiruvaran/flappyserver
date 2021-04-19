@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
               currentlyNotColliding = false;
               element.mdiv.style.backgroundImage =
                 "url('/assets/obstacle/BallPickUp.gif')";
-              bird.style.backgroundImage = "url('/assets/LeperchaunCatch.gif')";
+              // bird.style.backgroundImage = "url('/assets/LeperchaunCatch.gif')";
               time += 7;
               collectSoundTime.play();
               elementContainer = arrayRemove(elementContainer, element);
