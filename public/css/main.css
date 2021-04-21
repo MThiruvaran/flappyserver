@@ -31,7 +31,9 @@ body {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  margin: 20px;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
 }
 
 .start-button,
@@ -266,4 +268,37 @@ td {
 }
 .yourScore p {
   font-size: 16px;
+}
+
+.share-btn-container {
+  display: flex;
+  width: 300px;
+  padding: 10px;
+  justify-content: space-around;
+  background-color: #153c4a;
+  border: 3px solid white;
+  border-radius: 50px;
+  margin-top: 30px;
+}
+
+.share-btn-container a {
+  text-decoration: none;
+  font-size: 30px;
+  transition: 500ms;
+}
+
+.share-btn-container a:hover {
+  transform: scale(1.2);
+}
+
+.fa-facebook {
+  color: #3b5998;
+}
+
+.fa-whatsapp {
+  color: #25d366;
+}
+
+.fa-twitter {
+  color: #1da1f2;
 }
