@@ -500,10 +500,10 @@ document.addEventListener("DOMContentLoaded", () => {
         ua
       )
     ) {
-      clickInstruction.innerHTML = "Tap Here";
+      clickInstruction.innerHTML = "TAP HERE TO JUMP";
       return;
     }
-    clickInstruction.innerHTML = "Click Here";
+    clickInstruction.innerHTML = "CLICK HERE TO JUMP";
     return;
   };
 
