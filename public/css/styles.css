@@ -48,34 +48,34 @@ body {
 }
 
 @keyframes changeBackground {
-  10% {
+  0% {
     background-image: url("../assets/backgrounds/MountainStatic.png");
   }
-  18% {
+  16% {
     background-image: url("../assets/backgrounds/MountainStatic.png");
   }
   20% {
     background-image: url("../assets/backgrounds/KrakowStatic.png");
   }
-  38% {
+  36% {
     background-image: url("../assets/backgrounds/KrakowStatic.png");
   }
   40% {
     background-image: url("../assets/backgrounds/CapitalStatic.png");
   }
-  58% {
+  56% {
     background-image: url("../assets/backgrounds/CapitalStatic.png");
   }
   60% {
     background-image: url("../assets/backgrounds/LakeStatic.png");
   }
-  78% {
+  76% {
     background-image: url("../assets/backgrounds/LakeStatic.png");
   }
   80% {
     background-image: url("../assets/backgrounds/BeachStatic.png");
   }
-  98% {
+  96% {
     background-image: url("../assets/backgrounds/BeachStatic.png");
   }
   100% {
@@ -88,7 +88,7 @@ body {
 
   height: 480px;
   width: 512px;
-  animation: changeBackground 100s infinite;
+  animation: changeBackground 300s infinite;
 }
 
 .ground-container {
@@ -150,7 +150,7 @@ body {
 .score p,
 .timer p {
   color: white;
-  font-size: 15px;
+  font-size: 10px;
 }
 
 .score-text,
