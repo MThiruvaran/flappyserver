@@ -46,38 +46,6 @@ body {
     transform: translate3d(-348px, 0, 0);
   }
 }
-@-webkit-keyframes slide {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-4915px, 0, 0);
-  }
-}
-
-@keyframes slide {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-4915px, 0, 0);
-  }
-}
-@media only screen and (min-width: 900px) {
-  .sky {
-    background-image: url("../assets/LongBackground.png");
-    background-repeat: repeat-x;
-    height: 480px;
-    width: 14700px;
-    -webkit-animation: slide 100s linear infinite;
-    animation: slide 100s linear infinite;
-  }
-
-  .ground-container {
-    overflow: hidden;
-    width: 348px;
-  }
-}
 
 @keyframes changeBackground {
   0% {
@@ -100,20 +68,18 @@ body {
   }
 }
 
-@media only screen and (max-width: 900px) {
-  .sky {
-    background-image: url("../assets/backgrounds/MountainStatic.png");
+.sky {
+  background-image: url("../assets/backgrounds/MountainStatic.png");
 
-    height: 480px;
-    width: 512px;
-    animation: changeBackground 100s infinite;
-  }
+  height: 480px;
+  width: 512px;
+  animation: changeBackground 100s infinite;
+}
 
-  .ground-container {
-    overflow: hidden;
-    width: 348px;
-    margin-top: -30px;
-  }
+.ground-container {
+  overflow: hidden;
+  width: 348px;
+  margin-top: -30px;
 }
 
 .game-container {
@@ -237,7 +203,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 50px;
-  color: white;
+  color: red;
 
   z-index: 50;
 }
