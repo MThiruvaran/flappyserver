@@ -488,6 +488,25 @@ document.addEventListener("DOMContentLoaded", () => {
     startTimer();
   };
 
+  const clickInstruction = document.querySelector(".click-instruction");
+
+  const getDeviceType = () => {
+    const ua = navigator.userAgent;
+    if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+      return "tablet";
+    }
+    if (
+      /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
+        ua
+      )
+    ) {
+      clickInstruction.innerHTML = "Tap Here";
+    }
+    clickInstruction.innerHTML = "Click Here";
+  };
+
+  getDeviceType();
+
   let startingTime = 3;
 
   const startingTimeText = document.querySelector(".startGameTimerText");

@@ -215,10 +215,16 @@ body {
   height: 20%;
   width: 50%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 50px;
   color: red;
 
   z-index: 50;
+}
+
+.click-instruction {
+  font-size: 20px;
+  text-align: center;
 }
