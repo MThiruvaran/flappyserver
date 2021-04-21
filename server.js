@@ -81,7 +81,7 @@ cron.schedule("59 23 * * saturday", async () => {
 
 app.get("/", (req, res, next) => {
   res.status(200).render("menu", {
-    pageTitle: "Menu",
+    pageTitle: "Leperchaun jump",
     path: "/",
   });
 });
