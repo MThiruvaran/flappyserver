@@ -71,16 +71,17 @@ body {
 }
 
 .sky {
-  background-image: url("../assets/LongBackground.png");
+  background-image: url("../assets/backgrounds/BeachStatic.png");
   background-repeat: repeat-x;
   height: 480px;
-  width: 14750px;
-  -webkit-animation: slide 100s linear infinite;
-  animation: slide 100s linear infinite;
+  width: 512px;
+  /* -webkit-animation: slide 100s linear infinite;
+  animation: slide 100s linear infinite; */
 }
 .ground-container {
   overflow: hidden;
   width: 348px;
+  margin-top: -30px;
 }
 
 .ground {
