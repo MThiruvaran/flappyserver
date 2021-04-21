@@ -501,8 +501,10 @@ document.addEventListener("DOMContentLoaded", () => {
       )
     ) {
       clickInstruction.innerHTML = "Tap Here";
+      return;
     }
     clickInstruction.innerHTML = "Click Here";
+    return;
   };
 
   getDeviceType();
