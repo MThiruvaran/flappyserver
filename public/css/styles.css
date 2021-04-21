@@ -71,23 +71,31 @@ body {
 }
 
 .sky {
-  background-image: url("../assets/backgrounds/BeachStatic.png");
+  background-image: url("../assets/LongBackground.png");
   background-repeat: repeat-x;
   height: 480px;
-  width: 512px;
-  /* -webkit-animation: slide 100s linear infinite;
-  animation: slide 100s linear infinite; */
+  width: 14700px;
+  -webkit-animation: slide 100s linear infinite;
+  animation: slide 100s linear infinite;
 }
-@media only screen and (max-width: 740) {
-  .game-box {
-    transform: translate(-50%, -40%);
+@media only screen and (max-width: 900) {
+  .sky {
+    background-image: url("../assets/backgrounds/BeachStatic.png");
+    background-repeat: repeat-x;
+    height: 480px;
+    width: 512px;
+  }
+
+  .ground-container {
+    overflow: hidden;
+    width: 348px;
+    margin-top: -30px;
   }
 }
 
 .ground-container {
   overflow: hidden;
   width: 348px;
-  margin-top: -30px;
 }
 
 .ground {
