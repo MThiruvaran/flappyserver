@@ -48,19 +48,34 @@ body {
 }
 
 @keyframes changeBackground {
-  0% {
+  10% {
+    background-image: url("../assets/backgrounds/MountainStatic.png");
+  }
+  18% {
     background-image: url("../assets/backgrounds/MountainStatic.png");
   }
   20% {
     background-image: url("../assets/backgrounds/KrakowStatic.png");
   }
+  38% {
+    background-image: url("../assets/backgrounds/KrakowStatic.png");
+  }
   40% {
+    background-image: url("../assets/backgrounds/CapitalStatic.png");
+  }
+  58% {
     background-image: url("../assets/backgrounds/CapitalStatic.png");
   }
   60% {
     background-image: url("../assets/backgrounds/LakeStatic.png");
   }
+  78% {
+    background-image: url("../assets/backgrounds/LakeStatic.png");
+  }
   80% {
+    background-image: url("../assets/backgrounds/BeachStatic.png");
+  }
+  98% {
     background-image: url("../assets/backgrounds/BeachStatic.png");
   }
   100% {

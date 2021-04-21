@@ -38,59 +38,80 @@ document.addEventListener("DOMContentLoaded", () => {
     let time = 60;
     let scoreCount = 0;
 
-    let hasStarted = false;
-
     timer.innerHTML = time;
     score.innerHTML = scoreCount;
-    sound = document.createElement("audio");
+
+    const sound = document.createElement("audio");
     sound.src = "/assets/Sounds/PolishAnthem.mp3";
     sound.setAttribute("preload", "auto");
     sound.setAttribute("controls", "none");
     sound.style.display = "none";
-    document.body.appendChild(this.sound);
+    document.body.appendChild(sound);
     sound.volume = 0.1;
     sound.play();
 
-    jumpSound = document.createElement("audio");
+    const jumpSound = document.createElement("audio");
     jumpSound.src = "/assets/Sounds/Jump.wav";
     jumpSound.setAttribute("preload", "auto");
     jumpSound.setAttribute("controls", "none");
     jumpSound.style.display = "none";
-    document.body.appendChild(this.jumpSound);
+    document.body.appendChild(jumpSound);
     jumpSound.loop = false;
 
-    collectSoundTime = document.createElement("audio");
+    const collectSoundTime = document.createElement("audio");
     collectSoundTime.src = "/assets/Sounds/Get_Item2.wav";
     collectSoundTime.setAttribute("preload", "auto");
     collectSoundTime.setAttribute("controls", "none");
     collectSoundTime.style.display = "none";
-    document.body.appendChild(this.collectSoundTime);
+    document.body.appendChild(collectSoundTime);
     collectSoundTime.loop = false;
 
-    FireballShoot = document.createElement("audio");
+    const FireballShoot = document.createElement("audio");
     FireballShoot.src = "/assets/Sounds/Get_Item2.wav";
     FireballShoot.setAttribute("preload", "auto");
     FireballShoot.setAttribute("controls", "none");
     FireballShoot.style.display = "none";
-    document.body.appendChild(this.collectSoundTime);
+    document.body.appendChild(collectSoundTime);
     FireballShoot.loop = false;
-    FireballShoot.play();
 
-    collectSoundScore = document.createElement("audio");
-    collectSoundScore.src = "/assets/Sounds/PolishAnthem.mp3";
-    collectSoundScore.setAttribute("preload", "auto");
-    collectSoundScore.setAttribute("controls", "none");
-    collectSoundScore.style.display = "none";
-    document.body.appendChild(this.collectSoundScore);
-    collectSoundScore.loop = false;
-    collectSoundScore.play();
+    const BallPickup = document.createElement("audio");
+    BallPickup.src = "/assets/Sounds/BallPickup.wav";
+    BallPickup.setAttribute("preload", "auto");
+    BallPickup.setAttribute("controls", "none");
+    BallPickup.style.display = "none";
+    document.body.appendChild(BallPickup);
+    BallPickup.loop = false;
 
-    gameOverSound = document.createElement("audio");
+    const SirenPickup = document.createElement("audio");
+    SirenPickup.src = "/assets/Sounds/SirenPickup.wav";
+    SirenPickup.setAttribute("preload", "auto");
+    SirenPickup.setAttribute("controls", "none");
+    SirenPickup.style.display = "none";
+    document.body.appendChild(SirenPickup);
+    SirenPickup.loop = false;
+
+    const CloverPickup = document.createElement("audio");
+    CloverPickup.src = "/assets/Sounds/CloverPickup.wav";
+    CloverPickup.setAttribute("preload", "auto");
+    CloverPickup.setAttribute("controls", "none");
+    CloverPickup.style.display = "none";
+    document.body.appendChild(CloverPickup);
+    CloverPickup.loop = false;
+
+    const FlagPickup = document.createElement("audio");
+    FlagPickup.src = "/assets/Sounds/FlagPickup.wav";
+    FlagPickup.setAttribute("preload", "auto");
+    FlagPickup.setAttribute("controls", "none");
+    FlagPickup.style.display = "none";
+    document.body.appendChild(FlagPickup);
+    FlagPickup.loop = false;
+
+    const gameOverSound = document.createElement("audio");
     gameOverSound.src = "/assets/Sounds/Explode2.wav";
     gameOverSound.setAttribute("preload", "auto");
     gameOverSound.setAttribute("controls", "none");
     gameOverSound.style.display = "none";
-    document.body.appendChild(this.gameOverSound);
+    document.body.appendChild(gameOverSound);
     gameOverSound.loop = false;
 
     gameDisplay.addEventListener("click", function (e) {
@@ -178,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 caught = true;
                 bird.style.backgroundImage =
                   "url('/assets/LeperchaunCatch.gif')";
-                element.mdiv.style.backgroundImage = "url('/assets/obstacle/')";
+                element.mdiv.style.backgroundImage = "url('./obstacle/')";
                 popup.classList.add("dragon");
                 gameDisplay.appendChild(popup);
                 popup.style.backgroundImage =
@@ -190,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 elementRemoval(popup);
 
                 scoreCount += 125;
-                collectSoundTime.play();
+                BallPickup.play();
 
                 elementContainer = arrayRemove(elementContainer, element);
                 break;
@@ -198,7 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentlyNotColliding = false;
                 element.mdiv.style.backgroundImage = "url('/assets/obstacle/')";
                 scoreCount += 25;
-                collectSoundTime.play();
+                FlagPickup.play();
 
                 popup.classList.add("dragon");
                 gameDisplay.appendChild(popup);
@@ -215,7 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 scoreCount += 75;
                 currentlyNotColliding = false;
                 element.mdiv.style.backgroundImage = "url('/assets/obstacle/')";
-                collectSoundTime.play();
+                CloverPickup.play();
 
                 popup.classList.add("dragon");
                 gameDisplay.appendChild(popup);
@@ -233,7 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 time += 7;
                 element.mdiv.style.backgroundImage = "url('/assets/obstacle/')";
                 time += 7;
-                collectSoundTime.play();
+                SirenPickup.play();
 
                 popup.classList.add("dragon");
                 gameDisplay.appendChild(popup);
