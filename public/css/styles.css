@@ -78,12 +78,35 @@ body {
   -webkit-animation: slide 100s linear infinite;
   animation: slide 100s linear infinite;
 }
+
 @media only screen and (max-width: 900) {
+  @keyframes changeBackground {
+    0% {
+      background-image: url("../assets/backgrounds/MountainStatic.png");
+    }
+    20% {
+      background-image: url("../assets/backgrounds/KrakowStatic.png");
+    }
+    40% {
+      background-image: url("../assets/backgrounds/CapitalStatic.png");
+    }
+    60% {
+      background-image: url("../assets/backgrounds/LakeStatic.png");
+    }
+    80% {
+      background-image: url("../assets/backgrounds/BeachGround.png");
+    }
+    100% {
+      background-image: url("../assets/backgrounds/MountainStatic.png");
+    }
+  }
+
   .sky {
-    background-image: url("../assets/backgrounds/BeachStatic.png");
+    background-image: url("../assets/backgrounds/MountainStatic.png");
     background-repeat: repeat-x;
     height: 480px;
     width: 512px;
+    animation: changeBackground 100s linear infinite;
   }
 
   .ground-container {
