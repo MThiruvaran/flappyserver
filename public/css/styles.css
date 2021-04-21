@@ -103,9 +103,9 @@ body {
 }
 
 .ground {
-  background-image: url("../assets/backgrounds/BeachGround.png");
+  background-image: url("../assets/backgrounds/LakeGround.png");
   background-repeat: repeat-x;
-  height: 62px;
+  height: 70px;
   width: 1044px;
   -webkit-animation: groundslide 8s linear infinite;
   animation: groundslide 8s linear infinite;
