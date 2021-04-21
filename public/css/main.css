@@ -291,14 +291,7 @@ td {
   transform: scale(1.2);
 }
 
-.fa-facebook {
-  color: #3b5998;
-}
-
-.fa-whatsapp {
-  color: #25d366;
-}
-
-.fa-twitter {
-  color: #1da1f2;
+.share-btn-container a img {
+  height: 32px;
+  width: 32px;
 }
