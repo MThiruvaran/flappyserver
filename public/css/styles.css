@@ -1,6 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 body {
   background-image: url("../assets/JoxxerBG.png");
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Press Start 2P", cursive;
 }
 .game-box {
   height: fit-content;
@@ -106,7 +107,7 @@ body {
 .score p,
 .timer p {
   color: white;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .score-text,
@@ -154,4 +155,27 @@ body {
   width: 22px;
   background-repeat: no-repeat;
   position: absolute;
+}
+
+.dragon {
+  height: 80px;
+  width: 80px;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+
+.startGameTimer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 20%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  color: white;
+
+  z-index: 50;
 }
