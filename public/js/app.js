@@ -271,7 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 1000);
     }
 
-    let gameTimerId = setInterval(startGame, 20);
+    // let gameTimerId = setInterval(startGame, 20);
     startGame.setTimeout;
 
     const jump = () => {

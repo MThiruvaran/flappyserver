@@ -17,33 +17,15 @@ body {
   overflow: hidden;
 }
 
-@media only screen and (max-width: 740) {
+/* @media only screen and (max-width: 740) {
   .game-box {
     transform: translate(-50%, -40%);
   }
-}
+} */
 
 @media only screen and (max-height: 900px) {
   .game-box {
     transform: translate(-50%, -40%);
-  }
-}
-
-@-webkit-keyframes slide {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-4915px, 0, 0);
-  }
-}
-
-@keyframes slide {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-4915px, 0, 0);
   }
 }
 
@@ -64,49 +46,67 @@ body {
     transform: translate3d(-348px, 0, 0);
   }
 }
-
-.game-container {
-  overflow: hidden;
-  width: 348px;
-}
-
-.sky {
-  background-image: url("../assets/LongBackground.png");
-  background-repeat: repeat-x;
-  height: 480px;
-  width: 14700px;
-  -webkit-animation: slide 100s linear infinite;
-  animation: slide 100s linear infinite;
-}
-
-@media only screen and (max-width: 900) {
-  @keyframes changeBackground {
-    0% {
-      background-image: url("../assets/backgrounds/MountainStatic.png");
-    }
-    20% {
-      background-image: url("../assets/backgrounds/KrakowStatic.png");
-    }
-    40% {
-      background-image: url("../assets/backgrounds/CapitalStatic.png");
-    }
-    60% {
-      background-image: url("../assets/backgrounds/LakeStatic.png");
-    }
-    80% {
-      background-image: url("../assets/backgrounds/BeachGround.png");
-    }
-    100% {
-      background-image: url("../assets/backgrounds/MountainStatic.png");
-    }
+@-webkit-keyframes slide {
+  0% {
+    transform: translate3d(0, 0, 0);
   }
+  100% {
+    transform: translate3d(-4915px, 0, 0);
+  }
+}
 
+@keyframes slide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-4915px, 0, 0);
+  }
+}
+@media only screen and (min-width: 900px) {
   .sky {
-    background-image: url("../assets/backgrounds/MountainStatic.png");
+    background-image: url("../assets/LongBackground.png");
     background-repeat: repeat-x;
     height: 480px;
+    width: 14700px;
+    -webkit-animation: slide 100s linear infinite;
+    animation: slide 100s linear infinite;
+  }
+
+  .ground-container {
+    overflow: hidden;
+    width: 348px;
+  }
+}
+
+@keyframes changeBackground {
+  0% {
+    background-image: url("../assets/backgrounds/MountainStatic.png");
+  }
+  20% {
+    background-image: url("../assets/backgrounds/KrakowStatic.png");
+  }
+  40% {
+    background-image: url("../assets/backgrounds/CapitalStatic.png");
+  }
+  60% {
+    background-image: url("../assets/backgrounds/LakeStatic.png");
+  }
+  80% {
+    background-image: url("../assets/backgrounds/BeachStatic.png");
+  }
+  100% {
+    background-image: url("../assets/backgrounds/MountainStatic.png");
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .sky {
+    background-image: url("../assets/backgrounds/MountainStatic.png");
+
+    height: 480px;
     width: 512px;
-    animation: changeBackground 100s linear infinite;
+    animation: changeBackground 100s infinite;
   }
 
   .ground-container {
@@ -116,7 +116,7 @@ body {
   }
 }
 
-.ground-container {
+.game-container {
   overflow: hidden;
   width: 348px;
 }
