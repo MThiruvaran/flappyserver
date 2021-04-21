@@ -12,7 +12,11 @@ body {
 }
 
 .menu-container {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   position: absolute;
   padding: 20px;
@@ -21,6 +25,8 @@ body {
   transform: translate(-50%, -50%);
 }
 .menu {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 20px;
   display: flex;
@@ -51,7 +57,11 @@ td {
 }
 
 .scoreboard-container {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   position: absolute;
   padding: 20px;
@@ -61,6 +71,8 @@ td {
 }
 
 .scoreboard {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 20px;
   display: flex;
@@ -89,6 +101,8 @@ td {
 }
 
 .your-score {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   background-color: #429058;
   margin-top: 20px;
@@ -121,7 +135,11 @@ td {
 }
 
 .details-container {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   position: absolute;
   padding: 20px;
@@ -138,6 +156,8 @@ td {
 }
 
 .details {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 20px;
   display: flex;
@@ -187,7 +207,11 @@ td {
 }
 
 .how-to-play-container {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   position: absolute;
   padding: 20px;
@@ -197,6 +221,8 @@ td {
 }
 
 .how-to-play {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
 
   display: flex;
