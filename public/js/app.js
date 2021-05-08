@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
       birdBottom -= gravity;
       bird.style.left = birdLeft + "px";
       bird.style.bottom = birdBottom + "px";
-      gravity += 0.3;
+      gravity += 0.23;
 
       timer.innerHTML = time;
       score.innerHTML = scoreCount;
@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentlyNotColliding = false;
                 caught = true;
                 bird.style.backgroundImage =
-                  "url('/assets/LeperchaunCatch.gif')";
+                  "url('/assets/LeperchaunCatch.png')";
                 element.mdiv.style.backgroundImage = "url('./obstacle/')";
                 popup.classList.add("dragon");
                 gameDisplay.appendChild(popup);
