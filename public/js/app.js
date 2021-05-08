@@ -281,7 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function stateChange() {
       setTimeout(function () {
-        bird.style.backgroundImage = "url('/assets/LeprechaunFallGIF.gif')";
+        bird.style.backgroundImage = "url('/assets/LeprechaunFallGIF.png')";
         caught = false;
       }, 1000);
     }
@@ -304,14 +304,14 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     async function load() {
       // We need to wrap the loop into an async function for this to work
-      bird.style.backgroundImage = "url('/assets/LeprechaunJumpGIF.gif')";
+      bird.style.backgroundImage = "url('/assets/LeprechaunJumpGIF.png')";
       while (birdBottom < nexPosY) {
         gravity = 0;
         birdBottom += 2;
         await timerJump(3); // then the created Promise can be awaited
       }
       if (!caught) {
-        bird.style.backgroundImage = "url('/assets/LeprechaunFallGIF.gif')";
+        bird.style.backgroundImage = "url('/assets/LeprechaunFallGIF.png')";
       }
     }
 
