@@ -180,6 +180,12 @@ td {
   color: black;
 }
 
+.girl-image {
+  height: 70px;
+  width: auto;
+  margin-top: 20px;
+}
+
 .name-field,
 .email-field {
   padding: 15px 10px;
@@ -201,7 +207,7 @@ td {
 }
 
 .restart-button-details {
-  margin-top: 80px;
+  margin-top: 60px;
 }
 
 .restart-button-details:focus {

@@ -13,15 +13,18 @@ document.addEventListener("DOMContentLoaded", () => {
     let projectileSpeed = 3;
     let normalSpeed = 2;
     let elementContainer = [];
-    const backgroundArray = ["Beach", "Capital", "Krakow", "Lake", "Mountain"];
+    // const backgroundArray = ["Beach", "Capital", "Krakow", "Lake", "Mountain"];
     const obstacles = [
       "Dragon.gif",
-      "Eagle.gif",
+      "PolishFlag.png",
       "FootballPlayer.gif",
+      "Shamrock.png",
       "PolishFlag.png",
       "Shamrock.png",
-      "Siren.gif",
     ];
+
+    const timedObstacles = ["Siren.gif", "Eagle.gif"];
+
     const timerJump = (ms) => new Promise((res) => setTimeout(res, 0.001));
 
     let ballAngle;
@@ -453,22 +456,62 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
 
-    generateObstacle();
+    const generateTimedObstacle = () => {
+      let obstacleLeft = 400;
+      let randomHeight = 62 + Math.random() * 380;
+      let obstacleBottom = randomHeight;
 
-    const ChangeBackground = () => {
-      let randomBackground = Math.floor(Math.random() * 4);
-      sky.style.backgroundImage = `url('/assets/backgrounds/${backgroundArray[randomBackground]}Static.png')`;
+      let obstacleNumber = Math.floor(Math.random() * 2);
+      let displacement = Math.floor(Math.random() * 10);
+      const timedObstacle = document.createElement("div");
+
+      if (!isGameOver) {
+        timedObstacle.classList.add("obstacle");
+      }
+
+      gameDisplay.appendChild(timedObstacle);
+      timedObstacle.style.backgroundImage = `url('/assets/obstacle/${timedObstacles[obstacleNumber]}')`;
+      timedObstacle.style.left = obstacleLeft + displacement + "px";
+      timedObstacle.style.bottom = obstacleBottom + "px";
+
+      elementContainer.push({
+        number: obstacleNumber + 99,
+        mdiv: timedObstacle,
+      });
+
+      const moveTimedObstacle = () => {
+        obstacleLeft -= normalSpeed;
+        timedObstacle.style.left = obstacleLeft + "px";
+
+        if (obstacleLeft === -10) {
+          clearInterval(timerIdOther);
+          gameDisplay.removeChild(timedObstacle);
+          score.innerHTML = scoreCount;
+        }
+      };
+      let timerIdOther = setInterval(moveTimedObstacle, 20);
+      if (!isGameOver) {
+        setTimeout(generateTimedObstacle, 10000);
+      }
     };
 
-    let backgroundChange = setInterval(() => {
-      if (!isGameOver) {
-        ChangeBackground();
-      }
-    }, 20000);
+    generateObstacle();
+    generateTimedObstacle();
+
+    // const ChangeBackground = () => {
+    //   let randomBackground = Math.floor(Math.random() * 4);
+    //   sky.style.backgroundImage = `url('/assets/backgrounds/${backgroundArray[randomBackground]}Static.png')`;
+    // };
+
+    // let backgroundChange = setInterval(() => {
+    //   if (!isGameOver) {
+    //     ChangeBackground();
+    //   }
+    // }, 20000);
 
     const gameOver = () => {
       clearInterval(gameTimerId);
-      clearInterval(backgroundChange);
+      // clearInterval(backgroundChange);
       console.log("Game over");
       gameOverSound.play();
 
