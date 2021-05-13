@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 body {
-  background-image: url("../assets/JoxxerBG.png");
+  background-image: url("../assets/optmised.jpg");
   font-family: "Press Start 2P", cursive;
 }
 .game-box {
@@ -47,48 +47,10 @@ body {
   }
 }
 
-@keyframes changeBackground {
-  0% {
-    background-image: url("../assets/backgrounds/MountainStatic.png");
-  }
-  19% {
-    background-image: url("../assets/backgrounds/MountainStatic.png");
-  }
-  20% {
-    background-image: url("../assets/backgrounds/KrakowStatic.png");
-  }
-  39% {
-    background-image: url("../assets/backgrounds/KrakowStatic.png");
-  }
-  40% {
-    background-image: url("../assets/backgrounds/CapitalStatic.png");
-  }
-  59% {
-    background-image: url("../assets/backgrounds/CapitalStatic.png");
-  }
-  60% {
-    background-image: url("../assets/backgrounds/LakeStatic.png");
-  }
-  79% {
-    background-image: url("../assets/backgrounds/LakeStatic.png");
-  }
-  80% {
-    background-image: url("../assets/backgrounds/BeachStatic.png");
-  }
-  99% {
-    background-image: url("../assets/backgrounds/BeachStatic.png");
-  }
-  100% {
-    background-image: url("../assets/backgrounds/MountainStatic.png");
-  }
-}
-
 .sky {
   background-image: url("../assets/backgrounds/MountainStatic.png");
-
   height: 480px;
   width: 512px;
-  animation: changeBackground 300s infinite;
 }
 
 .ground-container {

@@ -455,9 +455,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     generateObstacle();
 
+    const ChangeBackground = () => {
+      let randomBackground = Math.floor(Math.random() * 4);
+      sky.style.backgroundImage = `url('/assets/backgrounds/${backgroundArray[randomBackground]}Static.png')`;
+    };
+
+    let backgroundChange = setInterval(() => {
+      if (!isGameOver) {
+        ChangeBackground();
+      }
+    }, 20000);
+
     const gameOver = () => {
       clearInterval(gameTimerId);
-
+      clearInterval(backgroundChange);
       console.log("Game over");
       gameOverSound.play();
 
@@ -500,10 +511,10 @@ document.addEventListener("DOMContentLoaded", () => {
         ua
       )
     ) {
-      clickInstruction.innerHTML = "TAP HERE TO JUMP";
+      clickInstruction.innerHTML = "TAP ANYWHERE TO JUMP";
       return;
     }
-    clickInstruction.innerHTML = "CLICK HERE TO JUMP";
+    clickInstruction.innerHTML = "CLICK ANYWHERE TO JUMP";
     return;
   };
 
