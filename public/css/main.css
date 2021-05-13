@@ -90,7 +90,7 @@ td {
 }
 
 .scoreboard table {
-  background-color: #429058;
+  background-color: #ab0104;
   border: 1px solid black;
   border-radius: 3px;
   font-size: 25px;
@@ -101,12 +101,12 @@ td {
   margin: 20px;
   width: 200px;
 }
-
+/* #429058 */
 .your-score {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  background-color: #429058;
+  background-color: #ab0104;
   margin-top: 20px;
   border: 1px solid black;
   border-radius: 3px;
@@ -167,7 +167,7 @@ td {
   align-items: center;
   margin: 20px;
   color: white;
-  background-color: #429058;
+  background-color: #ab0104;
   border: 1px solid black;
   border-radius: 3px;
 }
