@@ -396,7 +396,7 @@ document.addEventListener("DOMContentLoaded", () => {
         projectileFire.style.backgroundImage = `url('/assets/obstacle/Fireball.gif')`;
         projectileFire.style.visibility = "hidden";
         elementContainer.push({ number: 11, mdiv: projectileFire });
-      } else if (obstacleNumber === 2) {
+      } else if (obstacleNumber === 1) {
         obstacle.style.bottom = 30 + "px";
         projectileBall.style.bottom = 15 + "px";
         projectileBall.style.backgroundImage = `url('/assets/obstacle/Ball.png')`;
