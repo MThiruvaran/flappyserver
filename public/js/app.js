@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 popup.classList.add("dragon");
                 gameDisplay.appendChild(popup);
                 popup.style.backgroundImage =
-                  "url('./assets/obstacle/EaglePickup.gif')";
+                  "url('/assets/obstacle/EaglePickup.gif')";
                 popup.style.bottom = element.mdiv.style.bottom;
                 popup.style.left = element.mdiv.style.left;
 
@@ -220,12 +220,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentlyNotColliding = false;
                 caught = true;
                 bird.style.backgroundImage =
-                  "url('./assets/LeperchaunCatch.gif')";
+                  "url('/assets/LeperchaunCatch.gif')";
                 element.mdiv.style.opacity = 0; //"url('./obstacle/')";
                 popup.classList.add("dragon");
                 gameDisplay.appendChild(popup);
                 popup.style.backgroundImage =
-                  "url('./assets/obstacle/BallPickUp.gif')";
+                  "url('/assets/obstacle/BallPickUp.gif')";
                 popup.style.bottom = element.mdiv.style.bottom;
                 popup.style.left = element.mdiv.style.left;
 
@@ -251,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 popup.classList.add("dragon");
                 gameDisplay.appendChild(popup);
                 popup.style.backgroundImage =
-                  "url('./assets/obstacle/FlagPickup.gif')";
+                  "url('/assets/obstacle/FlagPickup.gif')";
                 popup.style.bottom = element.mdiv.style.bottom;
                 popup.style.left = element.mdiv.style.left;
 
@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 popup.classList.add("dragon");
                 gameDisplay.appendChild(popup);
                 popup.style.backgroundImage =
-                  "url('./assets/obstacle/CloverPickup.gif')";
+                  "url('/assets/obstacle/CloverPickup.gif')";
                 popup.style.bottom = element.mdiv.style.bottom;
                 popup.style.left = element.mdiv.style.left;
 
@@ -292,7 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 popup.classList.add("dragon");
                 gameDisplay.appendChild(popup);
                 popup.style.backgroundImage =
-                  "url('./assets/obstacle/SirenPickup.gif')";
+                  "url('/assets/obstacle/SirenPickup.gif')";
                 popup.style.bottom = element.mdiv.style.bottom;
                 popup.style.left = element.mdiv.style.left;
 
@@ -600,7 +600,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const startingTimeText = document.querySelector(".startGameTimerText");
   const startingTimeDiv = document.querySelector(".startGameTimer");
 
-  // setTimeout(startQuest, 3000);
+  setTimeout(startQuest, 3000);
   let questStart = setInterval(() => {
     if (startingTime > 1) {
       startingTime -= 1;
