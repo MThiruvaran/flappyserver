@@ -1,18 +1,17 @@
 let audioMuted = false;
-const audioButton = document.getElementsByClassName("audioButton");
-audioButton.src = "./assets/volume.png";
+
 const sound = document.createElement("audio");
 
 const muteControl = () => {
-  console.log(audioButton);
+  const audioButton = document.getElementsByClassName("audioButton");
+
   audioMuted = !audioMuted;
-  console.log(audioMuted);
   if (audioMuted) {
     sound.muted = true;
-    audioButton.src = "./assets/mute.png";
+    audioButton.src = "/assets/mute.png";
   } else {
     sound.muted = false;
-    audioButton.src = "./assets/volume.png";
+    audioButton.value = "/assets/volume.png";
   }
 };
 
