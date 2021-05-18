@@ -227,3 +227,8 @@ body {
   font-size: 20px;
   text-align: center;
 }
+
+.audioButton {
+  height: 20px;
+  background-image: url("../assets/volume.png");
+}

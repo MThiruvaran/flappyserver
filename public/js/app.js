@@ -1,3 +1,21 @@
+let audioMuted = false;
+const audioButton = document.getElementsByClassName("audioButton");
+audioButton.src = "./assets/volume.png";
+const sound = document.createElement("audio");
+
+const muteControl = () => {
+  console.log(audioButton);
+  audioMuted = !audioMuted;
+  console.log(audioMuted);
+  if (audioMuted) {
+    sound.muted = true;
+    audioButton.src = "./assets/mute.png";
+  } else {
+    sound.muted = false;
+    audioButton.src = "./assets/volume.png";
+  }
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   const startQuest = () => {
     const bird = document.querySelector(".bird");
@@ -16,8 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // const backgroundArray = ["Beach", "Capital", "Krakow", "Lake", "Mountain"];
     const obstacles = [
       "Dragon.gif",
-      "PolishFlag.png",
       "FootballPlayer.gif",
+      "PolishFlag.png",
       "Shamrock.png",
       "PolishFlag.png",
       "Shamrock.png",
@@ -44,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
     timer.innerHTML = time;
     score.innerHTML = scoreCount;
 
-    const sound = document.createElement("audio");
     sound.src = "/assets/Sounds/PolishAnthem.mp3";
     sound.setAttribute("preload", "auto");
     sound.setAttribute("controls", "none");
@@ -121,7 +138,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!isGameOver) {
         if (jumpCond === false) {
           if (birdBottom < 470) jump();
-          jumpSound.play();
+          if (!audioMuted) {
+            jumpSound.play();
+          }
           hasStarted = true;
         }
       }
@@ -181,15 +200,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentlyNotColliding = false;
                 gameOver();
                 break;
-              case 1:
+              case 100:
                 currentlyNotColliding = false;
-                element.mdiv.style.backgroundImage =
-                  "url('/assets/obstacle/EaglePickup.gif')";
+                element.mdiv.style.opacity = 0; // "url('./obstacle/')";
                 time += 7;
                 collectSoundTime.play();
                 popup.classList.add("dragon");
                 gameDisplay.appendChild(popup);
-                popup.style.backgroundImage = "url('/assets/obstacle/')";
+                popup.style.backgroundImage =
+                  "url('./assets/obstacle/EaglePickup.gif')";
                 popup.style.bottom = element.mdiv.style.bottom;
                 popup.style.left = element.mdiv.style.left;
 
@@ -201,12 +220,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentlyNotColliding = false;
                 caught = true;
                 bird.style.backgroundImage =
-                  "url('/assets/LeperchaunCatch.png')";
-                element.mdiv.style.backgroundImage = "url('./obstacle/')";
+                  "url('./assets/LeperchaunCatch.gif')";
+                element.mdiv.style.opacity = 0; //"url('./obstacle/')";
                 popup.classList.add("dragon");
                 gameDisplay.appendChild(popup);
                 popup.style.backgroundImage =
-                  "url('/assets/obstacle/BallPickUp.gif')";
+                  "url('./assets/obstacle/BallPickUp.gif')";
                 popup.style.bottom = element.mdiv.style.bottom;
                 popup.style.left = element.mdiv.style.left;
 
@@ -214,37 +233,46 @@ document.addEventListener("DOMContentLoaded", () => {
                 elementRemoval(popup);
 
                 scoreCount += 125;
-                BallPickup.play();
+                if (!audioMuted) {
+                  BallPickup.play();
+                }
+
+                elementContainer = arrayRemove(elementContainer, element);
+                break;
+              case 2:
+              case 4:
+                currentlyNotColliding = false;
+                element.mdiv.style.opacity = 0; //"url('./obstacle/')";
+                scoreCount += 25;
+                if (!audioMuted) {
+                  FlagPickup.play();
+                }
+
+                popup.classList.add("dragon");
+                gameDisplay.appendChild(popup);
+                popup.style.backgroundImage =
+                  "url('./assets/obstacle/FlagPickup.gif')";
+                popup.style.bottom = element.mdiv.style.bottom;
+                popup.style.left = element.mdiv.style.left;
+
+                elementRemoval(popup);
 
                 elementContainer = arrayRemove(elementContainer, element);
                 break;
               case 3:
-                currentlyNotColliding = false;
-                element.mdiv.style.backgroundImage = "url('/assets/obstacle/')";
-                scoreCount += 25;
-                FlagPickup.play();
-
-                popup.classList.add("dragon");
-                gameDisplay.appendChild(popup);
-                popup.style.backgroundImage =
-                  "url('/assets/obstacle/FlagPickup.gif')";
-                popup.style.bottom = element.mdiv.style.bottom;
-                popup.style.left = element.mdiv.style.left;
-
-                elementRemoval(popup);
-
-                elementContainer = arrayRemove(elementContainer, element);
-                break;
-              case 4:
+              case 5:
                 scoreCount += 75;
                 currentlyNotColliding = false;
-                element.mdiv.style.backgroundImage = "url('/assets/obstacle/')";
-                CloverPickup.play();
+                element.mdiv.style.opacity = 0; //"url('./obstacle/')";
+
+                if (!audioMuted) {
+                  CloverPickup.play();
+                }
 
                 popup.classList.add("dragon");
                 gameDisplay.appendChild(popup);
                 popup.style.backgroundImage =
-                  "url('/assets/obstacle/CloverPickup.gif')";
+                  "url('./assets/obstacle/CloverPickup.gif')";
                 popup.style.bottom = element.mdiv.style.bottom;
                 popup.style.left = element.mdiv.style.left;
 
@@ -252,17 +280,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 elementContainer = arrayRemove(elementContainer, element);
                 break;
-              case 5:
+              case 99:
                 currentlyNotColliding = false;
                 time += 7;
-                element.mdiv.style.backgroundImage = "url('/assets/obstacle/')";
+                element.mdiv.style.opacity = 0; //"url('./obstacle/')";
                 time += 7;
-                SirenPickup.play();
+                if (!audioMuted) {
+                  SirenPickup.play();
+                }
 
                 popup.classList.add("dragon");
                 gameDisplay.appendChild(popup);
                 popup.style.backgroundImage =
-                  "url('/assets/obstacle/SirenPickup.gif')";
+                  "url('./assets/obstacle/SirenPickup.gif')";
                 popup.style.bottom = element.mdiv.style.bottom;
                 popup.style.left = element.mdiv.style.left;
 
@@ -513,7 +543,9 @@ document.addEventListener("DOMContentLoaded", () => {
       clearInterval(gameTimerId);
       // clearInterval(backgroundChange);
       console.log("Game over");
-      gameOverSound.play();
+      if (!audioMuted) {
+        gameOverSound.play();
+      }
 
       bird.style.backgroundImage = "url('/assets/LeprechaunDead.png')";
 
@@ -568,7 +600,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const startingTimeText = document.querySelector(".startGameTimerText");
   const startingTimeDiv = document.querySelector(".startGameTimer");
 
-  setTimeout(startQuest, 3000);
+  // setTimeout(startQuest, 3000);
   let questStart = setInterval(() => {
     if (startingTime > 1) {
       startingTime -= 1;
